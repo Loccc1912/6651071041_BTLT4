@@ -1,0 +1,1220 @@
+/* ============================================
+   CSS3 WEB DESIGN - BLOG CÁ NHÂN
+   ============================================ */
+
+/* ============================================
+   1. RESET & GENERAL STYLES
+   ============================================ */
+
+/* Universal Selector - Áp dụng cho tất cả phần tử */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Tag Selector - Định dạng cho toàn bộ body */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ============================================
+   2. HEADER & NAVIGATION
+   ============================================ */
+
+/* Class Selector - Header sticky */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: linear-gradient(135deg, #2e6779 0%, #000000 100%);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    /* CSS3: Box-shadow */
+}
+
+/* Child Selector (>) - Định dạng nav-container trực tiếp trong header */
+.header > .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Class Selector - Logo */
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: white;
+    min-width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    /* CSS3: Border-radius */
+}
+
+/* Class Selector - Navigation list */
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+/* Class Selector - Navigation link */
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: all 0.3s ease;
+    /* CSS3: Transition */
+}
+
+/* Pseudo-class :hover - Hiệu ứng hover cho nav link */
+.nav-link:hover,
+.nav-link.active {
+    transform: translateY(-2px);
+    /* CSS3: 2D Transform */
+}
+
+/* Pseudo-element ::after - Tạo đường gạch dưới hiệu ứng */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s ease;
+    /* CSS3: Transition */
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* ============================================
+   3. HERO SECTION
+   ============================================ */
+
+/* Class Selector - Hero section */
+.hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #3993a8 0%, #000000 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Pseudo-element ::before - Tạo decorative background */
+.hero::before {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    /* CSS3: Border-radius */
+    top: -100px;
+    right: -100px;
+    animation: float 6s ease-in-out infinite;
+    /* CSS3: Animation */
+}
+
+/* Pseudo-element ::after - Tạo decorative background thứ 2 */
+.hero::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    /* CSS3: Border-radius */
+    bottom: -50px;
+    left: -100px;
+    animation: float 8s ease-in-out infinite reverse;
+    /* CSS3: Animation */
+}
+
+/* Keyframes - Định nghĩa animation float */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+        /* CSS3: 2D Transform */
+    }
+    50% {
+        transform: translateY(-30px);
+        /* CSS3: 2D Transform */
+    }
+}
+
+/* Class Selector - Hero content */
+.hero-content {
+    max-width: 600px;
+    color: white;
+    position: relative;
+    z-index: 2;
+    margin-right: 2rem;
+    animation: slideInLeft 0.8s ease-out;
+    /* CSS3: Animation */
+}
+
+/* Keyframes - Animation cho hero content */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+        /* CSS3: 2D Transform */
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+        /* CSS3: 2D Transform */
+    }
+}
+
+/* Class Selector - Hero title */
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+/* Class Selector - Wave animation */
+.wave {
+    display: inline-block;
+    animation: wave 1s ease-in-out;
+    /* CSS3: Animation */
+    transform-origin: center bottom;
+    /* CSS3: Transform */
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: rotate(0deg);
+        /* CSS3: 2D Transform */
+    }
+    25% {
+        transform: rotate(20deg);
+        /* CSS3: 2D Transform */
+    }
+}
+
+/* Class Selector - Hero subtitle */
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Class Selector - Highlight text */
+.highlight {
+    background: linear-gradient(120deg, #299c8f, #000000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    /* CSS3: Text Effects - Background-clip */
+    font-weight: bold;
+}
+
+/* Class Selector - Hero description */
+.hero-description {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    opacity: 0.95;
+}
+
+/* Class Selector - CTA buttons */
+.cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+}
+
+/* Class Selector - Button styling */
+.btn {
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    /* CSS3: Border-radius */
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    /* CSS3: Transition */
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+}
+
+/* Class Selector - Primary button */
+.btn-primary {
+    background: linear-gradient(135deg, #2b84a4, #000000);
+    color: white;
+    box-shadow: 0 8px 20px rgba(9, 197, 235, 0.3);
+    /* CSS3: Box-shadow */
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    /* CSS3: 2D Transform */
+    box-shadow: 0 12px 30px rgba(6, 132, 170, 0.5);
+    /* CSS3: Box-shadow */
+}
+
+/* Class Selector - Secondary button */
+.btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-secondary:hover {
+    background: white;
+    color: #1c6d89;
+    transform: translateY(-3px);
+    /* CSS3: 2D Transform */
+}
+
+/* Class Selector - Hero avatar */
+.hero-avatar {
+    max-width: 400px;
+    position: relative;
+    z-index: 2;
+    animation: slideInRight 0.8s ease-out;
+    /* CSS3: Animation */
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+        /* CSS3: 2D Transform */
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+        /* CSS3: 2D Transform */
+    }
+}
+
+/* Class Selector - Avatar image */
+.avatar-img {
+    width: 100%;
+    border-radius: 20px;
+    /* CSS3: Border-radius */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    /* CSS3: Box-shadow */
+    transition: transform 0.3s ease;
+    /* CSS3: Transition */
+}
+
+.avatar-img:hover {
+    transform: scale(1.05);
+    /* CSS3: 2D Transform */
+}
+
+/* ============================================
+   4. SECTION TITLES & UNDERLINES
+   ============================================ */
+
+/* Class Selector - Section title */
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    animation: fadeInDown 0.6s ease-out;
+    /* CSS3: Animation */
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+        /* CSS3: 2D Transform */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        /* CSS3: 2D Transform */
+    }
+}
+
+/* Pseudo-element - Tag selector h2 */
+h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+/* Class Selector - Title underline */
+.title-underline {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #2c7996, #030005);
+    margin: 0 auto;
+    border-radius: 2px;
+    /* CSS3: Border-radius */
+}
+
+/* ============================================
+   5. GENERAL SECTION STYLING
+   ============================================ */
+
+/* Group Selector (,) - Định dạng chung cho các section */
+.about,
+.skills,
+.projects,
+.timeline,
+.blog-section,
+.contact {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ============================================
+   6. ABOUT SECTION
+   ============================================ */
+
+/* Class Selector - About content */
+.about-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+/* Class Selector - About text */
+.about-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* Tag Selector p - Paragraph styling */
+p {
+    margin-bottom: 1.5rem;
+}
+
+/* Tag Selector strong - Bold text */
+strong {
+    color: #13a3a3;
+    font-weight: 600;
+}
+
+/* Tag Selector em - Italic text */
+em {
+    font-style: italic;
+    color: #4b95a2;
+}
+
+/* Class Selector - About stats */
+.about-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Class Selector - Stat card */
+.stat-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    /* CSS3: Border-radius */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    /* CSS3: Box-shadow */
+    text-align: center;
+    transition: all 0.3s ease;
+    /* CSS3: Transition */
+    border: 2px solid transparent;
+}
+
+/* Pseudo-class :hover - Stat card hover */
+.stat-card:hover {
+    border-color: #268092;
+    transform: translateY(-5px);
+    /* CSS3: 2D Transform */
+    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.2);
+    /* CSS3: Box-shadow */
+}
+
+/* Class Selector - Stat number */
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, #66d6ea, #000000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    /* CSS3: Text Effects - Background-clip */
+    margin-bottom: 0.5rem;
+}
+
+/* Class Selector - Stat label */
+.stat-label {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* ============================================
+   7. SKILLS SECTION
+   ============================================ */
+
+/* Class Selector - Skills container */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* Class Selector - Skill category */
+.skill-category {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    /* CSS3: Border-radius */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    /* CSS3: Box-shadow */
+    animation: fadeInUp 0.6s ease-out;
+    /* CSS3: Animation */
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+        /* CSS3: 2D Transform */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        /* CSS3: 2D Transform */
+    }
+}
+
+/* Tag Selector h3 */
+h3 {
+    color: #17cece;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+/* Class Selector - Skill tags */
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+/* Class Selector - Skill tag (pill badge) */
+.skill-tag {
+    background: linear-gradient(135deg, #288eb0, #000000);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    /* CSS3: Border-radius */
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    /* CSS3: Transition */
+    display: inline-block;
+}
+
+/* Pseudo-class :hover - Skill tag hover */
+.skill-tag:hover {
+    transform: scale(1.1);
+    /* CSS3: 2D Transform */
+    box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
+    /* CSS3: Box-shadow */
+}
+
+/* ============================================
+   8. PROJECTS SECTION
+   ============================================ */
+
+/* Class Selector - Projects grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+/* Class Selector - Project card */
+.project-card {
+    background: white;
+    border-radius: 12px;
+    /* CSS3: Border-radius */
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    /* CSS3: Box-shadow */
+    transition: all 0.3s ease;
+    /* CSS3: Transition */
+}
+
+/* Pseudo-class :hover - Project card hover */
+.project-card:hover {
+    transform: translateY(-10px);
+    /* CSS3: 2D Transform */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    /* CSS3: Box-shadow */
+}
+
+/* Class Selector - Project image */
+.project-image {
+    position: relative;
+    overflow: hidden;
+    height: 250px;
+}
+
+/* Tag Selector img */
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    /* CSS3: Transition */
+}
+
+/* Pseudo-element - Project image overlay */
+.project-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(37, 150, 178, 0.7);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    /* CSS3: Transition */
+}
+
+/* Pseudo-class - Project card hover image */
+.project-card:hover .project-image::after {
+    opacity: 1;
+}
+
+/* Class Selector - Project overlay */
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    /* CSS3: Transition */
+    z-index: 3;
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
+
+/* Class Selector - Project link */
+.project-link {
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border: 2px solid white;
+    border-radius: 50px;
+    /* CSS3: Border-radius */
+    transition: all 0.3s ease;
+    /* CSS3: Transition */
+}
+
+.project-link:hover {
+    background: white;
+    color: #2484ae;
+}
+
+/* Class Selector - Project content */
+.project-content {
+    padding: 1.5rem;
+}
+
+/* Class Selector - Project tech */
+.project-tech {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Pseudo-element - Tech tags */
+.project-tech span {
+    background: #f0f0f0;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    /* CSS3: Border-radius */
+    font-size: 0.85rem;
+    color: #666;
+}
+
+/* ============================================
+   9. TIMELINE SECTION
+   ============================================ */
+
+/* Class Selector - Timeline container */
+.timeline-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    padding: 2rem 0;
+}
+
+/* Pseudo-element - Timeline vertical line */
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, #1594a5, #000000);
+    transform: translateX(-50%);
+}
+
+/* Class Selector - Timeline item */
+.timeline-item {
+    margin-bottom: 3rem;
+    position: relative;
+    display: flex;
+    gap: 2rem;
+}
+
+/* Pseudo-class :nth-child - Alternate layout */
+.timeline-item:nth-child(odd) {
+    flex-direction: row;
+    margin-left: 0;
+}
+
+.timeline-item:nth-child(even) {
+    flex-direction: row-reverse;
+    margin-left: auto;
+}
+
+/* Class Selector - Timeline marker */
+.timeline-marker {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    background: white;
+    border: 3px solid #1ca6be;
+    border-radius: 50%;
+    /* CSS3: Border-radius */
+    transform: translateX(-50%);
+    /* CSS3: Transform */
+    z-index: 2;
+}
+
+/* Class Selector - Timeline content */
+.timeline-content {
+    width: 45%;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    /* CSS3: Border-radius */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    /* CSS3: Box-shadow */
+    transition: all 0.3s ease;
+    /* CSS3: Transition */
+}
+
+/* Pseudo-class :hover - Timeline content hover */
+.timeline-item:hover .timeline-content {
+    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.2);
+    /* CSS3: Box-shadow */
+    transform: translateY(-5px);
+    /* CSS3: 2D Transform */
+}
+
+/* ============================================
+   10. BLOG SECTION
+   ============================================ */
+
+/* Class Selector - Blog section container */
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 2rem;
+}
+
+/* Class Selector - Blog main */
+.blog-main {
+    grid-column: 1;
+}
+
+/* Class Selector - Blog posts */
+.blog-posts {
+    column-count: 2;
+    /* CSS3: Multiple Columns */
+    column-gap: 2rem;
+}
+
+/* Pseudo-element - Blog posts break avoid */
+.blog-post {
+    break-inside: avoid;
+    /* CSS3: Multiple Columns */
+}
+
+/* Class Selector - Blog post */
+.blog-post {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    /* CSS3: Border-radius */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    /* CSS3: Box-shadow */
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+    /* CSS3: Transition */
+    border-left: 4px solid transparent;
+}
+
+.blog-post:hover {
+    border-left-color: #1a8bb8;
+    transform: translateX(5px);
+    /* CSS3: 2D Transform */
+}
+
+/* Class Selector - Post date */
+.post-date {
+    color: #999;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Class Selector - Post title */
+.post-title {
+    color: #333;
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+}
+
+/* Class Selector - Post excerpt */
+.post-excerpt {
+    color: #666;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+/* Class Selector - Read more link */
+.read-more {
+    color: #05769f;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    /* CSS3: Transition */
+}
+
+.read-more:hover {
+    color: #0d7388;
+    transform: translateX(5px);
+    /* CSS3: 2D Transform */
+}
+
+/* ============================================
+   11. SIDEBAR
+   ============================================ */
+
+/* Class Selector - Blog sidebar */
+.blog-sidebar {
+    grid-column: 2;
+}
+
+/* Class Selector - Sidebar widget */
+.sidebar-widget {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    /* CSS3: Border-radius */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    /* CSS3: Box-shadow */
+    margin-bottom: 2rem;
+    border-top: 3px solid #66c9ea;
+}
+
+/* Tag Selector ul */
+ul {
+    list-style: none;
+}
+
+/* Class Selector - Recent posts */
+.recent-posts li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.recent-posts li:last-child {
+    border-bottom: none;
+}
+
+/* Pseudo-class - Link styling */
+.recent-posts a {
+    color: #666;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    /* CSS3: Transition */
+    display: block;
+}
+
+.recent-posts a:hover {
+    color: #198ca9;
+    transform: translateX(5px);
+    /* CSS3: 2D Transform */
+}
+
+/* ============================================
+   12. SOCIAL LINKS
+   ============================================ */
+
+/* Class Selector - Social links */
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Class Selector - Social icon */
+.social-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0f0f0;
+    color: #21a9c2;
+    border-radius: 50%;
+    /* CSS3: Border-radius */
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+    /* CSS3: Transition */
+}
+
+.social-icon:hover {
+    background: linear-gradient(135deg, #0385a9, #000000);
+    color: white;
+    transform: scale(1.1) rotate(360deg);
+    /* CSS3: 2D/3D Transform */
+}
+
+/* ============================================
+   13. CONTACT SECTION
+   ============================================ */
+
+/* Class Selector - Contact content */
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Class Selector - Contact info */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Class Selector - Contact item */
+.contact-item {
+    padding: 1.5rem;
+    background: white;
+    border-radius: 8px;
+    /* CSS3: Border-radius */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    /* CSS3: Box-shadow */
+    transition: all 0.3s ease;
+    /* CSS3: Transition */
+}
+
+.contact-item:hover {
+    transform: translateY(-5px);
+    /* CSS3: 2D Transform */
+    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.2);
+    /* CSS3: Box-shadow */
+}
+
+/* Class Selector - Contact form */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Class Selector - Form group */
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Pseudo-element - Form input & textarea */
+.form-group input,
+.form-group textarea {
+    padding: 1rem;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    /* CSS3: Border-radius */
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    /* CSS3: Transition */
+}
+
+/* Pseudo-class :focus - Input focus state */
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #0c6f7a;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    /* CSS3: Box-shadow */
+}
+
+/* ============================================
+   14. FOOTER
+   ============================================ */
+
+/* Class Selector - Footer */
+.footer {
+    background: linear-gradient(135deg, #327787, #000000);
+    color: white;
+    padding: 3rem 2rem 1rem;
+    /* CSS3: Multiple background images */
+}
+
+/* Class Selector - Footer content */
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Class Selector - Footer section */
+.footer-section h3 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+/* Class Selector - Footer links */
+.footer-section a {
+    color: #bbb;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    /* CSS3: Transition */
+}
+
+.footer-section a:hover {
+    color: white;
+}
+
+/* Class Selector - Social links footer */
+.social-links-footer {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Class Selector - Social icon footer */
+.social-icon-footer {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    /* CSS3: Border-radius */
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    /* CSS3: Transition */
+}
+
+.social-icon-footer:hover {
+    background: linear-gradient(135deg, #000000, #09a6ab);
+    transform: translateY(-3px);
+    /* CSS3: 2D Transform */
+}
+
+/* Class Selector - Footer bottom */
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Class Selector - Back to top */
+.back-to-top {
+    color: #2684a3;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    /* CSS3: Transition */
+}
+
+.back-to-top:hover {
+    transform: translateY(-3px);
+    /* CSS3: 2D Transform */
+}
+
+/* ============================================
+   15. RESPONSIVE DESIGN
+   ============================================ */
+
+/* Media Query - Tablet */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content {
+        margin-right: 0;
+    }
+
+    .hero-avatar {
+        max-width: 300px;
+        margin-top: 2rem;
+    }
+
+    .cta-buttons {
+        justify-content: center;
+    }
+
+    .nav-list {
+        gap: 1rem;
+    }
+
+    .timeline-container::before {
+        left: 20px;
+    }
+
+    .timeline-item {
+        flex-direction: column;
+    }
+
+    .timeline-item:nth-child(even) {
+        flex-direction: column;
+    }
+
+    .timeline-content {
+        width: 100%;
+        margin-left: 60px;
+    }
+
+    .section-container {
+        grid-template-columns: 1fr;
+    }
+
+    .blog-sidebar {
+        grid-column: 1;
+    }
+
+    .blog-posts {
+        column-count: 1;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+/* Media Query - Mobile */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================
+   SUMMARY OF CSS3 FEATURES USED:
+   ============================================
+   
+   ✓ SELECTORS:
+   - Universal (*), Tag, Class, ID, Descendant, Child (>), 
+     Group (,), Pseudo-class (:hover, :nth-child, :focus)
+     Pseudo-element (::before, ::after)
+   
+   ✓ BORDER & BACKGROUND:
+   - border-radius, box-shadow, linear-gradient
+   
+   ✓ TEXT EFFECTS:
+   - background-clip, -webkit-text-fill-color
+   
+   ✓ 2D/3D TRANSFORM:
+   - transform: translateX, translateY, scale, rotate, rotate3d
+   
+   ✓ TRANSITIONS & ANIMATIONS:
+   - transition, @keyframes, animation
+   
+   ✓ MULTIPLE COLUMNS:
+   - column-count, column-gap, break-inside
+   
+   ✓ USER INTERFACE:
+   - :focus, :hover states with visual feedback
+   
+   ============================================ */

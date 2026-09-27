@@ -1,0 +1,584 @@
+/* ============================================
+   CSS3 - THE COZY BEAN COFFEE SHOP
+   Thiết kế menu quán cà phê hiện đại
+   ============================================ */
+
+/* SELECTOR UNIVERSAL (*) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* SELECTOR TAG - body, html */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #f9f7f4;
+}
+
+/* ============================================
+   HEADER SECTION
+   ============================================ */
+
+/* SELECTOR TAG - header */
+header.header {
+    background: linear-gradient(135deg, #3e2723 0%, #5d4037 100%);
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+    background-size: 400% 400%;
+    background-position: 0% 50%;
+    /* border-image property: tạo khung viền trang trí */
+    border-bottom: 3px solid;
+    border-image: linear-gradient(90deg, #d4a574 0%, #8d6e63 50%, #d4a574 100%) 1;
+}
+
+.header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* SELECTOR CLASS - .logo */
+.logo {
+    flex-shrink: 0;
+}
+
+.logo-img {
+    width: 80px;
+    height: 80px;
+    /* border-radius: bo góc ảnh logo */
+    border-radius: 50%;
+    /* box-shadow: tạo hiệu ứng đổ bóng */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border: 3px solid #d4a574;
+}
+
+/* SELECTOR CLASS - .header-text */
+.header-text h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.slogan {
+    font-size: 1rem;
+    font-style: italic;
+    color: #d4a574;
+    letter-spacing: 0.5px;
+}
+
+/* ============================================
+   NAVIGATION BAR
+   ============================================ */
+
+/* SELECTOR TAG - nav */
+nav.navbar {
+    background-color: #5d4037;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    /* box-shadow: đổ bóng cho navigation */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* SELECTOR CLASS - .nav-menu */
+.nav-menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* SELECTOR TAG - li */
+nav.navbar li {
+    position: relative;
+}
+
+/* SELECTOR PSEUDO-CLASS - :hover */
+nav.navbar a:hover {
+    color: #ffcc99;
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
+
+/* SELECTOR CLASS + PSEUDO-CLASS - .nav-link:active */
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.nav-link.active {
+    color: #ffcc99;
+    border-bottom: 2px solid #ffcc99;
+    padding-bottom: 0.3rem;
+}
+
+/* ============================================
+   MAIN CONTENT AREA
+   ============================================ */
+
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+}
+
+/* SELECTOR CLASS - .container */
+.container {
+    flex: 1;
+}
+
+/* ============================================
+   SECTION STYLING
+   ============================================ */
+
+/* SELECTOR CLASS - .menu-section */
+.menu-section {
+    margin-bottom: 3rem;
+}
+
+/* SELECTOR CLASS - .section-title */
+.section-title {
+    font-size: 2rem;
+    color: #3e2723;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid #d4a574;
+    position: relative;
+    padding-left: 1rem;
+}
+
+/* SELECTOR PSEUDO-ELEMENT - ::before */
+.section-title::before {
+    content: "☕";
+    position: absolute;
+    left: -1.5rem;
+    top: 0;
+    font-size: 1.8rem;
+}
+
+/* SELECTOR ID - grid for menu cards */
+#menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* ============================================
+   MENU CARD STYLING
+   ============================================ */
+
+/* SELECTOR CLASS - .menu-card */
+.menu-card {
+    background: white;
+    /* border-radius: bo góc card */
+    border-radius: 12px;
+    overflow: hidden;
+    /* box-shadow: tạo hiệu ứng đổ bóng cho card */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* SELECTOR CLASS + PSEUDO-CLASS - .menu-card:hover */
+.menu-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* SELECTOR CLASS - .menu-image */
+.menu-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    /* border-radius: bo góc ảnh */
+    border-radius: 12px 12px 0 0;
+    transition: transform 0.3s ease;
+}
+
+.menu-card:hover .menu-image {
+    transform: scale(1.05);
+}
+
+/* SELECTOR CLASS - .card-content */
+.card-content {
+    padding: 1.5rem;
+}
+
+/* SELECTOR TAG - h3 */
+.card-content h3 {
+    font-size: 1.3rem;
+    color: #3e2723;
+    margin-bottom: 0.8rem;
+}
+
+/* SELECTOR CLASS - .description */
+.description {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+/* SELECTOR CLASS - .price */
+.price {
+    display: inline-block;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #d4a574;
+    background-color: #fff3e0;
+    padding: 0.4rem 0.8rem;
+    /* border-radius: bo góc giá */
+    border-radius: 20px;
+    margin-right: 0.5rem;
+}
+
+/* SELECTOR CLASS - .btn-order */
+.btn-order {
+    background-color: #d4a574;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    /* border-radius: bo góc nút */
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+/* SELECTOR CLASS + PSEUDO-CLASS - .btn-order:hover */
+.btn-order:hover {
+    background-color: #b8860b;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* SELECTOR CLASS + PSEUDO-CLASS - .btn-order:active */
+.btn-order:active {
+    transform: scale(0.98);
+}
+
+/* ============================================
+   SIDEBAR / ASIDE SECTION
+   ============================================ */
+
+/* SELECTOR CLASS - .sidebar */
+.sidebar {
+    background: white;
+    /* border-radius: bo góc sidebar */
+    border-radius: 12px;
+    padding: 2rem;
+    /* box-shadow: đổ bóng */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+    position: sticky;
+    top: 100px;
+}
+
+/* SELECTOR CLASS - .promotion-box */
+.promotion-box {
+    /* border-image: tạo khung viền trang trí cho khuyến mãi */
+    border: 2px solid;
+    border-image: linear-gradient(135deg, #d4a574 0%, #8d6e63 50%, #d4a574 100%) 1;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+/* SELECTOR CLASS - .aside-title */
+.aside-title {
+    font-size: 1.3rem;
+    color: #3e2723;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #d4a574;
+}
+
+/* SELECTOR CLASS - .favorite-item */
+.favorite-item {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: #fff9f5;
+    /* border-radius: bo góc item */
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.favorite-item:hover {
+    background: #fff3e0;
+    transform: translateY(-2px);
+}
+
+/* SELECTOR CLASS - .favorite-img */
+.favorite-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    /* border-radius: bo góc ảnh yêu thích */
+    border-radius: 8px;
+    /* box-shadow: đổ bóng */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0.5rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* SELECTOR CLASS - .favorite-name */
+.favorite-name {
+    font-weight: 600;
+    color: #3e2723;
+    margin-bottom: 0.3rem;
+    font-size: 0.95rem;
+}
+
+/* SELECTOR CLASS - .favorite-price */
+.favorite-price {
+    color: #d4a574;
+    font-weight: bold;
+    display: block;
+}
+
+/* ============================================
+   FOOTER SECTION
+   ============================================ */
+
+/* SELECTOR TAG - footer */
+footer.footer {
+    background: #3e2723;
+    color: white;
+    margin-top: 4rem;
+    padding: 3rem 1rem 1rem;
+    /* Multiple background images: kết hợp gradient + pattern */
+    background-image: 
+        linear-gradient(135deg, rgba(212, 165, 116, 0.1) 0%, rgba(141, 110, 99, 0.1) 100%),
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 10px,
+            rgba(212, 165, 116, 0.05) 10px,
+            rgba(212, 165, 116, 0.05) 20px
+        );
+    background-size: 100% 100%, 20px 20px;
+    background-position: 0 0, 0 0;
+}
+
+/* SELECTOR CLASS - .footer-content */
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto 2rem;
+}
+
+/* SELECTOR CLASS - .footer-section */
+.footer-section {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    /* border-radius: bo góc section */
+    border-radius: 8px;
+    /* box-shadow: đổ bóng nhẹ */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* SELECTOR TAG - h4 */
+.footer-section h4 {
+    color: #d4a574;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+/* SELECTOR TAG - p */
+.footer-section p {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* SELECTOR CLASS - .social-links */
+.social-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* SELECTOR CLASS + PSEUDO-CLASS - .social-icon:hover */
+.social-icon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: #d4a574;
+    color: #3e2723;
+    text-align: center;
+    line-height: 40px;
+    /* border-radius: bo góc tròn hoàn toàn */
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.social-icon:hover {
+    background-color: #ffcc99;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* SELECTOR CLASS - .footer-bottom */
+.footer-bottom {
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* SELECTOR PSEUDO-CLASS - @media query */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .header-text h1 {
+        font-size: 1.8rem;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        position: relative;
+        top: 0;
+    }
+
+    #menu {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* SELECTOR PSEUDO-CLASS - @media query cho thiết bị nhỏ */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    .header-text h1 {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+    }
+
+    .logo-img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .slogan {
+        font-size: 0.9rem;
+    }
+
+    .section-title {
+        font-size: 1.3rem;
+    }
+
+    .menu-card {
+        border-radius: 8px;
+    }
+
+    .btn-order {
+        width: 100%;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================
+   ANIMATION & TRANSITION EFFECTS
+   ============================================ */
+
+/* SELECTOR PSEUDO-CLASS - ::after */
+.menu-section::after {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #d4a574, transparent);
+    margin: 2rem auto;
+}
+
+/* Keyframe animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.menu-card {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* ============================================
+   ACCESSIBILITY & UTILITIES
+   ============================================ */
+
+/* SELECTOR CLASS - text truncate */
+.favorite-name {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Focus state for keyboard navigation */
+button:focus,
+a:focus {
+    outline: 2px solid #d4a574;
+    outline-offset: 2px;
+}
